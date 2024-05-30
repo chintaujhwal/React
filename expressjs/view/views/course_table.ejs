@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Course</title>
+    <style>
+        table, td, th {
+        border: 1px solid;
+        }
+        
+        td {
+            padding: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Courses</h1>
+    <table style="border-collapse: collapse;">
+        <tr>
+            <th>Title</th>
+            <th>Duration</th>
+            <th>Fee</th>
+        </tr>
+        <% values.forEach(i => { %>
+        <tr>
+            <td><%= i.title %></td>
+            <td><%= i.duration %></td>
+            <td><%= i.fee %></td>
+        </tr>
+        <% }) %>
+    </table>
+  </body>
+</html>

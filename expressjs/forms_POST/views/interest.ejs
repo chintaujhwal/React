@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest</title>
+</head>
+<body>
+    <h1>Interest Calculation</h1>
+    <form action="interest" method="post">
+        <input type="number" name="amount" required value="<%= amount %>"/>
+        <button>calculate</button>
+    </form>
+
+    <% if(interest > 0) { %>
+        <p>You're interest is</p>
+        <h1><%= interest %></h1>
+    <% } %>
+</body>
+</html>
