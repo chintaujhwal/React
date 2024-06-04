@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Customer from './properties/Customer';
+
+// let courses = [
+//   {title: 'Node', fee: 2500},
+//   {title: 'Express', fee: 1500},
+//   {title: 'React', fee: 5000},
+//   {title: 'Python', fee: 3500}
+// ]
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <Customer name='Eleven Wheeler' email='elevenwheeler@gmail.com' age={20}/>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
