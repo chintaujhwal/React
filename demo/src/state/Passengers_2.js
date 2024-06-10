@@ -2,22 +2,31 @@ import React, { useState } from 'react'
 
 function AddPassenger({ addFunction }) {
 
+    let [name, setName] = useState("");
+    let [age, setAge] = useState("");
+    
     function addPassenger(event) {
         event.preventDefault();
-        let name = document.getElementById('txtName').value;
-        let age = document.getElementById('txtAge').value;
         let passenger = { 'name': name, 'age': age };
         addFunction(passenger)
+    }
+
+    function updateName(e) {
+        setName(e.target.value);
+    }
+
+    function updateAge(e) {
+        setAge(e.target.value);
     }
 
     return (
         <>
             <form onSubmit={addPassenger}>
                 Name<br />
-                <input type='text' id='txtName' required />
+                <input type='text' value={name} onChange={updateName} required />
                 <p />
                 Age<br />
-                <input type='number' id='txtAge' required />
+                <input type='number' value={age} onChange={updateAge} required />
                 <p />
                 <button>Add</button>
                 <p />
