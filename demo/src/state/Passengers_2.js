@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 
-function AddPassenger({addFunction}) {
+function AddPassenger({passengers, addFunction}) {
 
     let [passenger, setPassenger] = useState({name: '', age: ''});
+    let [message, setMessage] = useState()
     
     function addPassenger(event) {
         event.preventDefault()
-        addFunction(passenger)
+
+        let result = passengers.find(i => i.name === passenger.name);
+        if(result)
+            setMessage('Duplicate passenger');
+        else
+            addFunction(passenger)
     }
 
     function updateValue(e) {
@@ -25,6 +31,7 @@ function AddPassenger({addFunction}) {
             <form onSubmit={addPassenger}>
                 Name<br />
                 <input type='text' value={passenger.name} name='name' onChange={updateValue} required />
+                <span style={{ color: 'red' }}> {message}</span>
                 <p />
                 Age<br />
                 <input type='number' value={passenger.age} name='age' onChange={updateValue} required />
@@ -40,7 +47,8 @@ function AddPassenger({addFunction}) {
 function ListPassengers({ passengers, deleteFunction }) {
 
     function deletePassenger(idxToDelete) {
-        deleteFunction(idxToDelete);
+        if (window.confirm("Are you sure ?"))
+            deleteFunction(idxToDelete);
     }
 
     return (
@@ -80,11 +88,17 @@ export default function Passengers() {
         setPassengers([...passengers, passenger]);
     }
 
+    function deleteAll() {
+        setPassengers([])
+    }
+
     return (
         <>
             <h2>Passengers</h2>
-            <AddPassenger addFunction={addNewPassenger} />
+            <AddPassenger passengers={passengers} addFunction={addNewPassenger} />
             <ListPassengers passengers={passengers} deleteFunction={deletePassenger} />
+
+            {passengers.length > 0 && <button onClick={deleteAll}>Delete All</button>}
         </>
     )
 }
