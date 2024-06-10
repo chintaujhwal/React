@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Interest from './events/Interest';
+import Passengers from './state/Passengers';
 
 // let courses = [
 //   {title: 'Node', fee: 2500},
@@ -12,6 +12,6 @@ import Interest from './events/Interest';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Interest rate = {10}/>
+    <Passengers />
   </React.StrictMode>
 );
