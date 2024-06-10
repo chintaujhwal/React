@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Customer from './properties/Customer';
+import Interest from './events/Interest';
 
 // let courses = [
 //   {title: 'Node', fee: 2500},
@@ -12,6 +12,6 @@ import Customer from './properties/Customer';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Customer name='Eleven Wheeler' email='elevenwheeler@gmail.com' age={20}/>
+    <Interest rate = {10}/>
   </React.StrictMode>
 );
