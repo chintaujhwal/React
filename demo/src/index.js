@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Passengers from './state/Passengers';
+import Passengers from './state/Passengers_2';
 
 // let courses = [
 //   {title: 'Node', fee: 2500},
